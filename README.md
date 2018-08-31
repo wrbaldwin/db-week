@@ -5,4 +5,4 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 ## Labs
 
 [Using a Property Graph](https://github.com/paulfryer/neptune-developer-workshop/blob/master/Labs/Airports/README.md) - 
-<Description>
+Add a description here.
