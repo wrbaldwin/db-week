@@ -1,6 +1,6 @@
 ## Data Design for Microservices
 
-[Customer Spreadsheet](https://github.com/wrbaldwin/db-week/blob/master/docs/data-design.xlsx)
+[Customer Spreadsheet](https://github.com/wrbaldwin/db-week/blob/master/Labs/data-design.xlsx)
 
 ### Lab Prep
 * Divide into groupsof 6-8 people
