@@ -20,6 +20,8 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 2.	Create and use an EC2 Security Group that allows inbound access as follows:
 *	SSH using TCP on port 22 from Anywhere* (0.0.0.0/0)
 *	MYSQL/Aurora using TCP on port 3306 from MyIP 
+![Pic25](https://github.com/wrbaldwin/db-week/blob/master/img/Picture25.tif) 
+
 *	*You might get an automated warning that your EC2 instance is “open to the world”, because we’re not limiting the source IP range for SSH. This is expected. In a production system, as a security best practice, you must only provide a limited IP range for allowed SSH access. For this lab however, you can disregard the warning.
 *	Make a note of the MyIP address. We’ll need to update the RDS Security Group later to allow inbound access from this IP address. 
  
@@ -48,11 +50,11 @@ http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.Creati
 *	Wait a few minutes until the RDS instance status is ‘Available’. 
 *	Once the RDS instance is available, find your instance’s DNS endpoint. We’ll use this endpoint to connect the MySQL client to your RDS instance.
    i.	On the AWS Console, in the AWS Services box, type ‘RDS’ and press enter.
-
+   ![Pic26](https://github.com/wrbaldwin/db-week/blob/master/img/Picture26.png) 
    ii.	On the RDS Dashboard, choose DB Instances
-
+   ![Pic27](https://github.com/wrbaldwin/db-week/blob/master/img/Picture27.png) 
    iii.	Select your DB Instance
-   
+   ![Pic28](https://github.com/wrbaldwin/db-week/blob/master/img/Picture28.png) 
    iv.	Scroll down and find your endpoint name. You will need it later!
 
    Note: When using the endpoint name, you usually should not use the 
