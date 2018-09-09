@@ -22,4 +22,4 @@ Linux Lab
 
 [DynamoDB and Search](https://github.com/wrbaldwin/db-week/tree/master/Labs) - In this lab, you’ll explore using Amazon Elasticsearch Service (Amazon ES) to augment the more fundamental query capabilities of Amazon Dynamo DB (Dynamo DB). You’ll deploy a CloudFormation template that generates a Dynamo DB table and loads movie data into that table. You’ll employ Dynamo Streams to replicate the initial data load to an Amazon Elasticsearch Service domain. You’ll enable Cognito authentication to provide simple access to Kibana so that you can use Kibana’s UI to send searches to Amazon ES. Finally, you’ll run a Lambda function to generate updates to the Dynamo DB table, see those updates replicated to Amazon ES, and build Kibana visualizations for the changes.
 
-
+[Data Design for Microservices](https://github.com/wrbaldwin/db-week/blob/master/Labs/data-design-for-microservices.md) - We didn't give you enough information to answer the question. Welcome to consulting! Since you don't have enough information, the real question is, "What will you ask the client at your next meeting?" What can you begin to recommend based on the limited information you have?
