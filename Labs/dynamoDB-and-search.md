@@ -1,8 +1,8 @@
-##Lab: DynamoDB and Search
+## Lab: DynamoDB and Search
 
 In this lab, you’ll explore using Amazon Elasticsearch Service (Amazon ES) to augment the more fundamental query capabilities of Amazon Dynamo DB (Dynamo DB). You’ll deploy a CloudFormation template that generates a Dynamo DB table and loads movie data into that table. You’ll employ Dynamo Streams to replicate the initial data load to an Amazon Elasticsearch Service domain. You’ll enable Cognito authentication to provide simple access to Kibana so that you can use Kibana’s UI to send searches to Amazon ES. Finally, you’ll run a Lambda function to generate updates to the Dynamo DB table, see those updates replicated to Amazon ES, and build Kibana visualizations for the changes.
 
-###Lab overview
+### Lab overview
 ![Pic35](https://github.com/wrbaldwin/db-week/blob/master/img/Picture35.png)
  
 
@@ -45,6 +45,7 @@ The Dynamo schema uses the movie’s id as the primary key and adds items for th
 These fields will also serve as the basis for querying the data in Elasticsearch.
 
 **Step 1: Launch the CloudFormation stack**
+
 	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
 	*	Choose CloudFormation
 	*	Choose the region you will use for this lab. The lab works in US East (N. Virginia) and US West (Oregon)
