@@ -3,9 +3,9 @@
 [Customer Spreadsheet](https://github.com/wrbaldwin/db-week/blob/master/docs/D04S07_Lab-Building-Scalable-Microservices.xlsx)
 
 ### Lab Prep
-   1. Divide into groupsof 6-8 people
-        * Each group is a consulting company
-        * You have been hired to advise on Microservices
+* Divide into groupsof 6-8 people
+* Each group is a consulting company
+* You have been hired to advise on Microservices
 
 ### About the Customer 
    2. Understand the customer
