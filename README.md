@@ -16,7 +16,8 @@ Aurora Lab
 
 [Comparing Redis with Relational](https://github.com/wrbaldwin/db-week/blob/master/Labs/comparing-redis-with-relational) - In this lab you create an EC2 instance for use as a SQL and Redis client. Next, you will create an RDS instance using MySQL, connect your SQL client instance to your RDS instance. Then you will create a database and load a public landsat dataset into it and query your database using SQL. Finally, you will create an ElastiCache for Redis cluster, connect your Redis client instance to your ElastiCache cluster, and query your ElastiCache cluster using Redis commands.
 
+[Using a Property Graph](https://github.com/paulfryer/neptune-developer-workshop/blob/master/Labs/Airports/README.md) - Add a description here.
+
+[DynamoDB Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/dynamoDB-basics) - Add a description here.
 
 
-[Using a Property Graph](https://github.com/paulfryer/neptune-developer-workshop/blob/master/Labs/Airports/README.md) - 
-Add a description here.
