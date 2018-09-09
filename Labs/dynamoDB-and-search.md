@@ -44,21 +44,21 @@ The Dynamo schema uses the movie’s id as the primary key and adds items for th
 ```
 These fields will also serve as the basis for querying the data in Elasticsearch.
 
-**Step 1: Launch the CloudFormation stack**
+1. Launch the CloudFormation stack**
 
 	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
 	*	Choose CloudFormation
 	*	Choose the region you will use for this lab. The lab works in US East (N. Virginia) and US West (Oregon)
-    *	Choose Create Stack
-    *	In the resulting window, select Specify an Amazon S3 template URL. Use the following template, depending on your region
+	*	Choose Create Stack
+	*	In the resulting window, select Specify an Amazon S3 template URL. Use the following template, depending on your region
         *	US East (N.Virginia): https://s3.amazonaws.com/imdb-ddb-aes-lab-east-1/Lab-Template.json
         *	US West (Oregon): https://s3.amazonaws.com/imdb-ddb-aes-lab-west-2/Lab-Template.json
-    *	Enter a Stack Name.
-    *	You can leave the other template parameters at their defaults or choose your own.
-    *	Click Next
-    *	Leave all the defaults on this page. Scroll to the bottom of the page and click Next
-    *	On the next page, click the checkbox next to I acknowledge that AWS CloudFormation might create IAM resources with custom names
-    *	Click Create
+	*	Enter a Stack Name.
+	*	You can leave the other template parameters at their defaults or choose your own.
+	*	Click Next
+	*	Leave all the defaults on this page. Scroll to the bottom of the page and click Next
+	*	On the next page, click the checkbox next to I acknowledge that AWS CloudFormation might create IAM resources with custom names
+	*	Click Create
 
 The stack will take approximately 15 minutes to deploy.
 
