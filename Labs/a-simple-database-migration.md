@@ -16,6 +16,7 @@ The following instructions help you launch a CloudFormation stack which sets up 
 
 Please follow the instructions below for connecting to EC2 Bastion instance.
 |Your Computer|How to Connect|
+|---|---|
 |Linux|[Connecting to Your Linux Instance Using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)|
 |Windows|[Connecting to Your Instance from Windows PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)|
 |All|[Connecting to Your Linux Instance Using MindTerm](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mindterm.html)|
