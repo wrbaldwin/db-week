@@ -45,9 +45,9 @@ The Dynamo schema uses the movie’s id as the primary key and adds items for th
 These fields will also serve as the basis for querying the data in Elasticsearch.
 
 **Step 1: Launch the CloudFormation stack**
-    *	Using a web browser, login to the AWS Console at https://aws.amazon.com/
-    *	Choose CloudFormation
-    *	Choose the region you will use for this lab. The lab works in US East (N. Virginia) and US West (Oregon)
+	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
+	*	Choose CloudFormation
+	*	Choose the region you will use for this lab. The lab works in US East (N. Virginia) and US West (Oregon)
     *	Choose Create Stack
     *	In the resulting window, select Specify an Amazon S3 template URL. Use the following template, depending on your region
         *	US East (N.Virginia): https://s3.amazonaws.com/imdb-ddb-aes-lab-east-1/Lab-Template.json
