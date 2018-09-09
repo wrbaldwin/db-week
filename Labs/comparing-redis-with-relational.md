@@ -222,12 +222,12 @@ redis> zremrangebyscore temp:acqDate 0 <epoch date of 1 year ago today>
 redis> zinterstore out 2 temp:cCov temp:acqDate WEIGHTS 1 0
 ```
 
-   *	Again, this generates a list of all the satellite images during the last year which have less than 50% cloud cover
-   -	Redis commands that start with a “z” are using sorted sets
-   -	You used zunionstore to copy the cCov sorted set to temp:cCov, then used zremrangebyscore to remove all items in temp:cCov with        50% or more cloud cover
-   -	You used zunionstore to copy the acqDate sorted set to temp:acqDate, then used zremrangebyscore to remove all items in                 temp:acqDate from before today 
-   -	You used zinterstore to find items that appear in both sorted sets, finding only satellite images with less than 50% cloud cover
-   *	Is this the same value from the SQL query?
+*	Again, this generates a list of all the satellite images during the last year which have less than 50% cloud cover
+	*	Redis commands that start with a “z” are using sorted sets
+	*	You used zunionstore to copy the cCov sorted set to temp:cCov, then used zremrangebyscore to remove all items in temp:cCov with 50% or more cloud cover
+	*	You used zunionstore to copy the acqDate sorted set to temp:acqDate, then used zremrangebyscore to remove all items in  temp:acqDate from before today 
+	*	You used zinterstore to find items that appear in both sorted sets, finding only satellite images with less than 50% cloud cover
+*	Is this the same value from the SQL query?
 
 
 
