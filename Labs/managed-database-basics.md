@@ -20,7 +20,7 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 2.	Create and use an EC2 Security Group that allows inbound access as follows:
 *	SSH using TCP on port 22 from Anywhere* (0.0.0.0/0)
 *	MYSQL/Aurora using TCP on port 3306 from MyIP 
-![Pic25](https://github.com/wrbaldwin/db-week/blob/master/img/Picture25.tif) 
+![Pic25](https://github.com/wrbaldwin/db-week/blob/master/img/Picture25.png.tif) 
 
 *	*You might get an automated warning that your EC2 instance is “open to the world”, because we’re not limiting the source IP range for SSH. This is expected. In a production system, as a security best practice, you must only provide a limited IP range for allowed SSH access. For this lab however, you can disregard the warning.
 *	Make a note of the MyIP address. We’ll need to update the RDS Security Group later to allow inbound access from this IP address. 
