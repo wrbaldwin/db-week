@@ -8,23 +8,20 @@
 * You have been hired to advise on Microservices
 
 ### About the Customer 
-   2. Understand the customer
-        * Customer is a successful bricks-and-mortar retailer
-        * Old e-commerce system based on Oracle
-        * They want replace it with something modern
-        * They want something “Amazon-like”
+* Customer is a successful bricks-and-mortar retailer
+* Old e-commerce system based on Oracle
+* They want replace it with something modern
+* They want something “Amazon-like”
 
 ### About the Spreadsheet
-   3. Analyze the Spreadsheet
-       * Channel Affiliate
-           * 3rd party company
-           * Selling through the client’s e-commerce site
-       * Promotion
-           * Various sales
-           * Buy-one-get-one
-           * Other commercial promotions
-           * Each needs a start and stop time.
-### Deliverables
-   4. At the next customer meeting...
-         * “What will you ask the client?”
-         * “What will you present, if anything?”
+* Channel Affiliate
+   * 3rd party company
+   * Selling through the client’s e-commerce site
+* Promotion
+   * Various sales
+   * Buy-one-get-one
+   * Other commercial promotions
+   * Each needs a start and stop time.
+### Deliverables (at the next customer meeting ...)
+* What will you ask the client?
+* What will you present, if anything?
