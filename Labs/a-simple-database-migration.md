@@ -56,13 +56,13 @@ You can update the path to drivers in Settings -> Global settings -> Drivers
 
 
 2.	Click “Create stack” from the top left 
- 
+![Pic2](https://github.com/wrbaldwin/db-week/blob/master/img/Picture2.png) 
 
 Click create stack, select ‘Specify an Amazon S3 template URL’ and specify the S3 template URL as https://s3-us-west-2.amazonaws.com/nyc-loft/PostgreSQL_Migration_CloudFormation_template.json
-
+![Pic3](https://github.com/wrbaldwin/db-week/blob/master/img/Picture3.png)
  
 3.	Hit next and give a friendly name such as ora2pg for the stack and accept all defaults. 
-
+![Pic4](https://github.com/wrbaldwin/db-week/blob/master/img/Picture4.png)
  
 
 
@@ -71,134 +71,123 @@ Click create stack, select ‘Specify an Amazon S3 template URL’ and specify t
 
 
 In the **Other Parameters** section choose the key for the EC2 instance as shown below Hit next in the next page and click on create. Wait for the entire stack to launch and become available.
-
+![Pic5](https://github.com/wrbaldwin/db-week/blob/master/img/Picture5.png)
  
 
-*Leave everything else default. Once the CloudFormation stack launch is complete, you should see 2 RDS instances in your account in the region you created the stack.  Approximately, it will take 15 to 20 minutes for creating the Stack.
+*Leave everything else default. Once the CloudFormation stack launch is complete, you should see 2 RDS instances in your account in the region you created the stack.  Approximately, **it will take 15 to 20 minutes for creating the Stack**.
 
 
 
 4.	Note down RDS Endpoint details of source and target instances from stack output section as shown below
- 
+![Pic6](https://github.com/wrbaldwin/db-week/blob/master/img/Picture6.png) 
 
 5.	Note down the resources created by the stack from the “Resources” tab, specially note down the VPC created by the stack as shown below
- 
+![Pic7](https://github.com/wrbaldwin/db-week/blob/master/img/Picture7.png) 
 
 6.	Once stack is available, go to the DMS console and launch a replication instance by selecting “Replication Instance” on the left side menu. Choose the same VPC as your stack name (this VPC was created by the CloudFormation Stack). 
-Also, please check the “Replication engine version” to the latest version, this screenshot shows the version 2.3.0, but the users should choose the latest 2.4.3 version.
+Also, please check the **“Replication engine version”** to the latest version, this screenshot shows the version 2.3.0, but the users should choose the latest 2.4.3 version.
 Please leave the rest of the values/advanced settings to the default values.
 
 Here is a screenshot of the create replication instance page – 
- 
+![Pic8](https://github.com/wrbaldwin/db-week/blob/master/img/Picture8.png) 
 
-
-
-
-Schema Conversion:
+**Schema Conversion:**
 1.	Launch the AWS Schema Conversion Tool installed on your machine.
 2.	Make the path to drivers in Settings -> Global settings -> Drivers point to the actual path where you have kept the drivers as show below
- 
+![Pic9](https://github.com/wrbaldwin/db-week/blob/master/img/Picture9.png)
 
 3.	Create a New Project using File-> New Project
- 
+![Pic10](https://github.com/wrbaldwin/db-week/blob/master/img/Picture10.png)
 
 4.	Connect to your assigned Oracle source and PostgreSQL target endpoints. Endpoints can be found under the “Resources” tab on the CloudFormation page or from the RDS Console under instances
-Oracle instance – 
-•	Type: SID
-•	Engine: Oracle
-•	Server Name: RDS Oracle Source endpoint from your account
-•	Server Port: 1521
-•	SID: orasrcdb
-•	User name: oraadmin
-•	Password: oraadmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+**Oracle instance –**
+*	Type: SID
+*	Engine: Oracle
+*	Server Name: RDS Oracle Source endpoint from your account
+*	Server Port: 1521
+*	SID: orasrcdb
+*	User name: oraadmin
+*	Password: oraadmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+![Pic11](https://github.com/wrbaldwin/db-week/blob/master/img/Picture11.png)
 
- 
+If the defaults were accepted in CloudFormation, the password is oraadmin123. **Substitute the server name with the RDS Oracle Database Endpoint launched in your VPC.**
+**NOTE:** If you’re not able to connect, please add the IP address from which you’re trying to connect to the instances from to the inbound security group rules for the security groups attached to the Oracle RDS and Aurora PostgreSQL instances. 
+**PostgreSQL instance:**
+*	Server name: Cluster endpoint of Aurora PostgreSQL target instance
+*	Serve Port: 5432
+*	Database name: auroradb
+*	Username: auradmin
+*	Password: auradmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+![Pic12](https://github.com/wrbaldwin/db-week/blob/master/img/Picture12.png)
 
+If the defaults were accepted in CloudFormation, the password is **auradmin123.** **Substitute 
+the server name with the RDS Aurora PostgreSQL (cluster endpoint) launched in your VPC.** 
+**NOTE:** If you’re not able to connect, please add the IP address from which you’re trying to connect to the instances from to the inbound security group rules for the security groups attached to the Oracle RDS and Aurora PostgreSQL instances. 
+Please refer troubleshoot connectivity - EC2 security groups [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html)
 
-If the defaults were accepted in CloudFormation, the password is oraadmin123. Substitute the server name with the RDS Oracle Database Endpoint launched in your VPC. 
-NOTE: If you’re not able to connect, please add the IP address from which you’re trying to connect to the instances from to the inbound security group rules for the security groups attached to the Oracle RDS and Aurora PostgreSQL instances. 
-PostgreSQL instance:
-•	Server name: Cluster endpoint of Aurora PostgreSQL target instance
-•	Serve Port: 5432
-•	Database name: auroradb
-•	Username: auradmin
-•	Password: auradmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+5.	Uncheck all schemas on the left except for the **“HR”** schema.
 
- 
-
-
-If the defaults were accepted in CloudFormation, the password is auradmin123. Substitute 
-the server name with the RDS Aurora PostgreSQL (cluster endpoint) launched in your VPC. 
-NOTE: If you’re not able to connect, please add the IP address from which you’re trying to connect to the instances from to the inbound security group rules for the security groups attached to the Oracle RDS and Aurora PostgreSQL instances. 
-Please refer troubleshoot connectivity - EC2 security groups here
-
-
-5.	Uncheck all schemas on the left except for the “HR” schema. 
 6.	Now, right click and click “Create Report”. Review the conversion report – click on the view tab and click assessment report view. Look through what Oracle objects could be automatically converted and what could not be
- 
+![Pic13](https://github.com/wrbaldwin/db-week/blob/master/img/Picture13.png)
 
 7.	Now, right click and click “Convert schema”. The schema will be converted and shown on the PostgreSQL instance (it has not been applied yet).
+![Pic14](https://github.com/wrbaldwin/db-week/blob/master/img/Picture14.png)
  
 8.	Right click on the created schema on the right and click “Apply to database”. This will apply all those converted objects in the PostgreSQL target.
 The above steps will convert all your Oracle objects into PostgreSQL objects. 
+![Pic15](https://github.com/wrbaldwin/db-week/blob/master/img/Picture15.png)
  
 9.	Objects which could not be converted automatically must be taken care of manually after migration at a later time.
-NOTE: At this point, all the database objects from the source HR Oracle schema must be converted and created in PostgreSQL in the HR schema in the Aurora postgres database. 
+**NOTE:** At this point, all the database objects from the source HR Oracle schema must be converted and created in PostgreSQL in the HR schema in the Aurora postgres database. 
 
 
-Data Migration:
+**Data Migration:**
 
 Create a source endpoint:
-•	Select Endpoints from the menu on the left and “click the "create endpoint" button at the top.
-•	Endpoint identifier: orasource
-•	Endpoint Type: source
-•	Engine: Oracle
-•	Server Name: RDS Oracle Source endpoint from your account
-•	Port: 1521
-•	SSL Mode: none
-•	User name: oraadmin
-•	Password: oraadmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
-•	SID: orasrcdb
-•	VPC: VPC launched by the CloudFormation template
-•	Replication Instance: choose the instance you created
-•	Refresh schemas: Yes - check this box
-Test the connection and save it if the test is successful.
+*	Select Endpoints from the menu on the left and “click the "create endpoint" button at the top.
+*	Endpoint identifier: orasource
+*	Endpoint Type: source
+*	Engine: Oracle
+*	Server Name: RDS Oracle Source endpoint from your account
+*	Port: 1521
+*	SSL Mode: none
+*	User name: oraadmin
+*	Password: oraadmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+*	SID: orasrcdb
+*	VPC: VPC launched by the CloudFormation template
+*	Replication Instance: choose the instance you created
+*	Refresh schemas: Yes - check this box
+**Test the connection and save it if the test is successful.**
+![Pic16](https://github.com/wrbaldwin/db-week/blob/master/img/Picture16.png)
 
- 
+**Create a target endpoint:**
+*	Click the "create endpoint" button at the top
+*	Endpoint identifier: aurtarget
+*	Endpoint Type: Target
+*	Engine: postgres
+*	Server name: Cluster endpoint of Aurora PostgreSQL target instance
+*	Port: 5432
+*	SSL Mode: none
+*	Username: auradmin
+*	Password: auradmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
+*	Database name: auroradb
+*	VPC: VPC launched by the CloudFormation template
+*	Replication Instance: choose the instance you created
+*	Refresh schemas: check this box 
+![Pic17](https://github.com/wrbaldwin/db-week/blob/master/img/Picture17.png)
 
+**Test the connection and save it if the test is successful**
 
-Create a target endpoint:
-•	Click the "create endpoint" button at the top
-•	Endpoint identifier: aurtarget
-•	Endpoint Type: Target
-•	Engine: postgres
-•	Server name: Cluster endpoint of Aurora PostgreSQL target instance
-•	Port: 5432
-•	SSL Mode: none
-•	Username: auradmin
-•	Password: auradmin123 (Please note that if you changed the default settings when creating the CloudFormation stack, then you need to enter the password that you have provided)
-•	Database name: auroradb
-•	VPC: VPC launched by the CloudFormation template
-•	Replication Instance: choose the instance you created
-•	Refresh schemas: check this box 
+**CREATE A MIGRATION TASK:**
+*	Name: Replication Instance: choose the one you created
+*	Source Endpoint: choose the source endpoint you just created
+*	Target Endpoint: choose the target endpoint you just created
+*	Migration Type: Migrate existing data and replicate ongoing changes
+*	Start task on create: check this (or don't, up to you). If you don’t, you’ll need to start your task Separately.
+**Target table preparation mode: Do Nothing** 
+![Pic18](https://github.com/wrbaldwin/db-week/blob/master/img/Picture18.png) 
 
- 
-
-Test the connection and save it if the test is successful
-
-
-
-
-CREATE A MIGRATION TASK:
-•	Name: Replication Instance: choose the one you created
-•	Source Endpoint: choose the source endpoint you just created
-•	Target Endpoint: choose the target endpoint you just created
-•	Migration Type: Migrate existing data and replicate ongoing changes
-•	Start task on create: check this (or don't, up to you). If you don’t, you’ll need to start your task Separately.
-** Target table preparation mode: Do Nothing 
- 
-
-Why a do-nothing task?
+**Why a do-nothing task?**
 The initial load in DMS is done table by table which means that the target tables cannot have active foreign key constraints. As we are using SCT to convert Oracle source objects into PostgreSQL target objects, all secondary objects were created as part of the process. This means that we would need to disable all foreign key constraints on the target for the initial full load to be successful. Foreign keys or referential integrity constraints in PostgreSQL are implemented using triggers. One way to disable foreign keys is to disable all triggers temporarily from the instance and do the loads.
 
 One of the ways to do this is to use the session_replication_role parameter in PostgreSQL. Triggers also have a state in PostgreSQL (Origin, replica, always or disabled). When the session_replication_role parameter is set to replica, only triggers of the state replica will be active and are fired when called. If not, the triggers remain inactive. We have already setup the parameter group on the target to set this role to replica which means all foreign key constraints (innately triggers in the origin state) will not be active. However, PostgreSQL has a failsafe mechanism of not letting a table truncate even with this role set. As we are using prepopulated tables on the target and cannot truncate the table, we are using do_nothing for the target table prep mode.
@@ -208,30 +197,24 @@ Include LOB columns in replication: Accept the default
 Enable logging: YES! (Check this box)
 
 
-Table Mappings – Selection rules:
+**Table Mappings – Selection rules:**
 1. Select HR from the drop-down box Click the "Add selection rule" button.
 2. Click on “add transformation rule” -> Choose schema for target dropdown -> Schema name is HR -> Choose “make lower case” for action & click add transformation rule.
 3. Click on “add transformation rule” -> Choose table for target dropdown -> Schema name is HR and table name is % -> Choose “make lower case” for action & click add transformation rule.
 4. Click on “add transformation rule” -> Choose column for target dropdown -> schema name is HR, table name is % -> column name is %  -> Choose “make lower case” for action & click add transformation rule.
-
-
-
- 
- 
+![Pic19](https://github.com/wrbaldwin/db-week/blob/master/img/Picture19.png) 
 
 Note – We are doing 2, 3 and 4 above as the schema has been pre-created on the target with lowercase (PostgreSQL convention). Your task json should look like this –
+![Pic20](https://github.com/wrbaldwin/db-week/blob/master/img/Picture20.png) 
 
- 
+->	Click create task now and let the task run. 
 
-	Click create task now and let the task run. 
-
-
-Executing transactions on the source to mimic CDC transactions:
+**Executing transactions on the source to mimic CDC transactions:**
 Once your task is running you might want to execute a few transactions on the source. So, connect to your source database as oraadmin using your favorite tool on your local machine: SQLDeveloper, DBeaver or even SQL*Plus!
 You can also choose to use the EC2 instance created as a part of the CloudFormation stack, this EC2 Instance is being created with SQLPLUS pre-installed.
 
 Login to EC2 instance (Refer the EC2 Bastion Instance Public DNS from the Output or Resource tab from the CloudFormation stack) as shown here 
-
+```
 1)	ssh –i <keypair.pem> ec2-user@<ec2 host name public DNS>
 (please note if you are using Putty to connect to EC2 Instance, then please use “.ppk” file instead) 
 
@@ -244,20 +227,15 @@ Login to EC2 instance (Refer the EC2 Bastion Instance Public DNS from the Output
 5)sqlplus 'oraadmin@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<RDS Oracle Endpoint>)(PORT=1521))(CONNECT_DATA=(SID=orasrcdb)))' 
 
 6) exec hr.add_employees(10000);
+```
 
+![Pic21](https://github.com/wrbaldwin/db-week/blob/master/img/Picture21.png)
+![Pic22](https://github.com/wrbaldwin/db-week/blob/master/img/Picture22.png) 
 
-
- 
-
- 
-
-
-
-
-Steps to connect to Aurora PostgreSQL Database using psql:
+**Steps to connect to Aurora PostgreSQL Database using psql:**
 
 Login to EC2 instance (grab the instance details from the Output or Resource tab from the CloudFormation stack) as shown here 
-
+```
 1)	ssh –i <keypair.pem> ec2-user@<ec2 host name public DNS>
 
 2)	Switch to root user (sudo su -)
@@ -267,9 +245,5 @@ Login to EC2 instance (grab the instance details from the Output or Resource tab
 4)	psql -h <replace cluster endpoint of your Aurora DB instance> -p 5432 -U  auradmin -d auroradb
 
 provide the password for auradmin user (auradmin123)
-
-
- 
-
- 
-
+```
+![Pic23](https://github.com/wrbaldwin/db-week/blob/master/img/Picture23.png) 
