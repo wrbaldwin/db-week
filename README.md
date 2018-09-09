@@ -8,7 +8,7 @@ Linux Lab
 
 [Managed Database Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/managed-database-basics.md) - In this lab you will learn, how to create an EC2 instance for use as a SQL client that connects to an RDS/MySQL instance. Next, you will create a database, load a public Landsat dataset into it, and query your database using SQL. Finally, you will learn how to use the RDS console including stopping, starting, monitoring, snapshots and other RDS features.
 
-Aurora Lab
+[Aurora MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/aurora-mysql.pdf) - In this lab you will, create Aurora MySQL DB Instance, grant Aurora MySQL access i.e. modify security group to allow access from your computer, and load data from S3 into Aurora MySQL database. Create read replica instance & access table, create a database copy using Aurora “Clone” feature, and perform DML query on primary DB and validate data on primary and cloned DB copy.
 
 [Upgrading and Consolidating MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/upgrading-and-consolidating-mySQL) - Add a description here.
 
