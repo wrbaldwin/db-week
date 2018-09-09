@@ -4,8 +4,8 @@
 
 ### Lab Prep
     1. Divide into groupsof 6-8 people
-       *Each group is a consulting company
-       *You have been hired to advise on Microservices
+       * Each group is a consulting company
+       * You have been hired to advise on Microservices
 
 ### About the Customer 
        * Customer is a successful bricks-and-mortar retailer
