@@ -15,8 +15,9 @@ The following instructions help you launch a CloudFormation stack which sets up 
 2.	Existing EC2 key pair created in the AWS region you are launching the CloudFormation template in. Please refer below on how to first create a new Key pair as shown [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
 Please follow the instructions below for connecting to EC2 Bastion instance.
+
 |Your Computer|How to Connect|
-|---|---:|
+|---|---|
 |Linux|[Connecting to Your Linux Instance Using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)|
 |Windows|[Connecting to Your Instance from Windows PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)|
 |All|[Connecting to Your Linux Instance Using MindTerm](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mindterm.html)|
@@ -50,7 +51,7 @@ You can update the path to drivers in Settings -> Global settings -> Drivers
 |Please execute this LAB using the us-east-1 (N. Virginia) or us-west-2 (Oregon) region.|
 
 1.	Login in to your AWS console and go to the CloudFormation service 
-
+[Pic1](https://github.com/wrbaldwin/db-week/blob/master/img/Picture1.png)
  
 
 
