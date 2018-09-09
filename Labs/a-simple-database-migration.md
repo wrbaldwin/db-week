@@ -10,57 +10,43 @@ The following instructions help you launch a CloudFormation stack which sets up 
 3.	EC2 Bastion instance with preinstalled PSQL and PGBENCH utilities
 4.	The CloudFormation will provision the necessary security groups with access based on the IP range provided in the template for port 1521 and 5432 respectively for Oracle and PostgreSQL instances.  
 
-Pre-requisites:
-1.	Active AWS account with Admin privileges. (IAM user should have administrator access). Please refer the link on how to create IAM administrator user here
-2.	Existing EC2 key pair created in the AWS region you are launching the CloudFormation template in. Please refer below on how to first create a new Key pair as shown here
-
-
-
-
-
-
+**Pre-requisites:**
+1.	Active AWS account with Admin privileges. (IAM user should have administrator access). Please refer the link on how to create IAM administrator user [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html#w2ab1c10c19b9)
+2.	Existing EC2 key pair created in the AWS region you are launching the CloudFormation template in. Please refer below on how to first create a new Key pair as shown [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
 Please follow the instructions below for connecting to EC2 Bastion instance.
-Your computer	How to connect
-Linux		Connecting to Your Linux Instance Using SSH
-
-
-Window	Connecting to Your Linux Instance from Windows Using PuTTY
-
-All	Connecting to Your Linux Instance Using MindTerm
-
-
-
+|Your Computer|How to Connect|
+|Linux|[Connecting to Your Linux Instance Using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)|
+|Windows|[Connecting to Your Instance from Windows PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)|
+|All|[Connecting to Your Linux Instance Using MindTerm](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mindterm.html)|
 
 3.	Pre-installed AWS Schema Conversion Tool software on your machine. Details on how to download and install AWS Schema Conversion Tool shown below
-a)	Install and launch SCT on your local machine from http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.html 
-b)	Download required drivers from links in the “Installing the Required Database Drivers” section from the above link. You will need to download Oracle and PostgreSQL drivers for this workshop. Alternatively, you can download the required drivers for this lab from – 
-http://bit.ly/2phVpPk -> Oracle JDBC driver
-http://bit.ly/2pt04ZT -> PostgreSQL JDBC driver
+   a)	Install and launch SCT on your local machine from http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.html 
+   b)	Download required drivers from links in the “Installing the Required Database Drivers” section from the above link. You will need    to download Oracle and PostgreSQL drivers for this workshop. Alternatively, you can download the required drivers for this lab from – 
+   http://bit.ly/2phVpPk -> Oracle JDBC driver
+   http://bit.ly/2pt04ZT -> PostgreSQL JDBC driver
 
 On the Mac, please make sure the file permission for the drivers is set to 755
  
 You can update the path to drivers in Settings -> Global settings -> Drivers
 
+**High level steps:**
+   c)	Log into your AWS account
+   d)	Launch CloudFormation stack 
+   e)	Click on create a new stack and “Choose Specify an Amazon S3 template URL” and specify the S3 location for the cloud formation        template 
+   f)	Provide user defined Stack name 
+   g)	Under Parameters section, for the parameter key name, select the preexisting key for your account in this region
+   h)	Click create and wait for the stack to be completed, once it is completed look under the tab “outputs” to get the connection          details for Oracle and Aurora PostgreSQL and EC2 instance. 
+   i)	Navigate to the DMS service (under Migration)
+   j)	Launch a replication instance on the same VPC as source and target
+   k)	Use SCT to convert source Oracle schema objects to target PostgreSQL
+   l)	Create a source endpoint (Source is launched using the CloudFormation stack)
+   m)	Create a target endpoint (Target is launched using CloudFormation stack)
+   n)	Create a task to migrate the data from the source database to the target database
+   o)	Execute some transactions on the source database (using a script we’ve provided)
 
-
-High level steps:
-c)	Log into your AWS account
-d)	Launch CloudFormation stack 
-e)	Click on create a new stack and “Choose Specify an Amazon S3 template URL” and specify the S3 location for the cloud formation template 
-f)	Provide user defined Stack name 
-g)	Under Parameters section, for the parameter key name, select the preexisting key for your account in this region
-h)	Click create and wait for the stack to be completed, once it is completed look under the tab “outputs” to get the connection details for Oracle and Aurora PostgreSQL and EC2 instance.
-i)	Navigate to the DMS service (under Migration)
-j)	Launch a replication instance on the same VPC as source and target
-k)	Use SCT to convert source Oracle schema objects to target PostgreSQL
-l)	Create a source endpoint (Source is launched using the CloudFormation stack)
-m)	Create a target endpoint (Target is launched using CloudFormation stack)
-n)	Create a task to migrate the data from the source database to the target database
-o)	Execute some transactions on the source database (using a script we’ve provided)
-
-Please execute this LAB using the us-east-1 (N. Virginia) or us-west-2 (Oregon) region.
-Lab Instructions:
+**Lab Instructions:**
+|Please execute this LAB using the us-east-1 (N. Virginia) or us-west-2 (Oregon) region.|
 
 1.	Login in to your AWS console and go to the CloudFormation service 
 
@@ -82,7 +68,7 @@ Click create stack, select ‘Specify an Amazon S3 template URL’ and specify t
 
 
 
-In the Other Parameters section choose the key for the EC2 instance as shown below Hit next in the next page and click on create. Wait for the entire stack to launch and become available.
+In the **Other Parameters** section choose the key for the EC2 instance as shown below Hit next in the next page and click on create. Wait for the entire stack to launch and become available.
 
  
 
