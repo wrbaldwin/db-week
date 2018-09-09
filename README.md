@@ -6,5 +6,9 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 
 [Managed Database Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/managed-database-basics.md) - In this lab you will learn, how to create an EC2 instance for use as a SQL client that connects to an RDS/MySQL instance. Next, you will create a database, load a public Landsat dataset into it, and query your database using SQL. Finally, you will learn how to use the RDS console including stopping, starting, monitoring, snapshots and other RDS features.
 
+[Upgrading and Consolidating MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/upgrading-and-consolidating-mySQL) - Add a description here.
+
+[A Simple Database Migration](https://github.com/wrbaldwin/db-week/blob/master/Labs/a-simple-database-migration) - This workshop will focus on hands-on journey for existing Oracle DBA to Aurora PostgreSQL. Attendees will deploy an instance of Aurora PostgreSQL, migrate or generate a test workload on PostgreSQL, and manually monitor the database to understand the workload. They will review a few ways to track queries and their execution plans, and what can be done to optimize the queries. Attendees will also learn how to do the same on Aurora PostgreSQL using Performance Insights for query analysis and tuning.
+
 [Using a Property Graph](https://github.com/paulfryer/neptune-developer-workshop/blob/master/Labs/Airports/README.md) - 
 Add a description here.
