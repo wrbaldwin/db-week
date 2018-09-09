@@ -62,19 +62,20 @@ These fields will also serve as the basis for querying the data in Elasticsearch
 
 The stack will take approximately 15 minutes to deploy.
 
-**Step 2: Enable Amazon Cognito Access**
+2. **Enable Amazon Cognito Access**
 
-    *	In the console, select Elasticsearch Service
-    *	Click the <stack-name>-domain
-    *	Click Configure Cluster
-    *	Scroll to the Kibana Authentication section and click the Enable Amazon Cognito for Authentication check box.
-    *	In the Cognito User Pool drop down, select ImdbDdbEsUserPool
-    *	In the Cognito Identity Pool drop down, select ImdbDdbEsIdentityPool
-    *	Click Submit
+	*	In the console, select Elasticsearch Service
+	*	Click the <stack-name>-domain
+	*	Click Configure Cluster
+	*	Scroll to the Kibana Authentication section and click the Enable Amazon Cognito for Authentication check box.
+	*	In the Cognito User Pool drop down, select ImdbDdbEsUserPool
+	*	In the Cognito Identity Pool drop down, select ImdbDdbEsIdentityPool
+	*	Click Submit
 
 Your domain will enter the Processing state while Amazon Elasticsearch Service enables Cognito access for your domain. Wait until the domain status is Active before going on to the next step. This should take about 10 minutes.
 
-**Step 3: Log in to Kibana**
+3. **Log in to Kibana**
+
     *	Click the Kibana link from your Amazon ES domain’s dashboard
     *	For Username enter kibana, for Password, enter Abcd1234!
     *	Click Sign in
@@ -84,12 +85,12 @@ You will see Kibana’s welcome screen
 
 ![Pic36](https://github.com/wrbaldwin/db-week/blob/master/img/Picture36.png)
 
-Search the movie data
-    *	In Kibana’s main screen, select the Dev Tools tab 
-    *	Click Get to work
-    *	The panel you now see lets you send requests directly to Amazon Elasticsearch Service. You enter the HTTP method, and the URL       body. Kibana starts out with a helpful example. Click the   to execute the query and you should see Elasticsearch’s response in the     right half of the screen.
-    *	For your first query, you will search the movie titles for Iron Man. Click after the closing bracket for the match_all query and    hit Enter a couple of times to get some blank lines.
-    *	Type “GET”. Notice that Kibana provides a drop down with possible completions. Finish typing out (or copy-paste) the following      query
+**Search the movie data**
+	*	In Kibana’s main screen, select the Dev Tools tab 
+	*	Click Get to work
+	*	The panel you now see lets you send requests directly to Amazon Elasticsearch Service. You enter the HTTP method, and the URL       body. Kibana starts out with a helpful example. Click the   to execute the query and you should see Elasticsearch’s response in the     right half of the screen.
+	*	For your first query, you will search the movie titles for Iron Man. Click after the closing bracket for the match_all query and    hit Enter a couple of times to get some blank lines.
+	*	Type “GET”. Notice that Kibana provides a drop down with possible completions. Finish typing out (or copy-paste) the following      query
 
 ```
 GET movies/_search
@@ -280,15 +281,16 @@ Your results will show you a set of buckets (aggs) for actors, along with a coun
 
 You can experiment with building aggregations of different types and with different sub-buckets.
 
-**Stream updates to Dynamo DB
-    *	In your web browser, open a new tab for https://console.aws.amazon.com and choose Lambda
-    *	Select Functions in the left pane
-    *	You will see the three Lambda functions that the lab deploys, named <stack name>-WiringFunction-<string>, <stack name>-             LambdaFunctionForDDBStreams-<string>, and <stack name>-StreamingFunction-<string>. Click <stack name>-StreamingFunction-<string>
-    *	This function will generate random updates for the clicks and purchases fields, and send those updates to Dynamo. These updates     will in turn be shipped to Amazon ES through the LambdaFunctionForDDBStreams. If you examine the code, you’ll see that the function     ignores its input and simply runs in a loop, exiting just before it times out
-    *	Click Test
-    *	Type an Event Name
-    *	Since the inputs don’t matter, you don’t have to change them. Click Create
-    *	Click Test. This will run for 5 minutes, streaming changes to Amazon ES via Dynamo DB
+**Stream updates to Dynamo DB**
+
+*	In your web browser, open a new tab for https://console.aws.amazon.com and choose Lambda
+*	Select Functions in the left pane
+*	You will see the three Lambda functions that the lab deploys, named <stack name>-WiringFunction-<string>, <stack name>-             LambdaFunctionForDDBStreams-<string>, and <stack name>-StreamingFunction-<string>. Click <stack name>-StreamingFunction-<string>
+*	This function will generate random updates for the clicks and purchases fields, and send those updates to Dynamo. These updates     will in turn be shipped to Amazon ES through the LambdaFunctionForDDBStreams. If you examine the code, you’ll see that the function     ignores its input and simply runs in a loop, exiting just before it times out
+*	Click Test
+*	Type an Event Name
+*	Since the inputs don’t matter, you don’t have to change them. Click Create
+*	Click Test. This will run for 5 minutes, streaming changes to Amazon ES via Dynamo DB
 
 **Analyze the changes with Kibana**
 If you examine the code for the LambdaFunctionForDDBStreams, you’ll see that when data is modified in your Dynamo table, the function sends both the update and a log of the changes to the clicks and purchases to a logs-<date> index. You can use Kibana to visualize this information.
