@@ -44,7 +44,7 @@ The Dynamo schema uses the movie’s id as the primary key and adds items for th
 ```
 These fields will also serve as the basis for querying the data in Elasticsearch.
 
-1. Launch the CloudFormation stack**
+**1. Launch the CloudFormation stack**
 
 	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
 	*	Choose CloudFormation
@@ -63,6 +63,7 @@ These fields will also serve as the basis for querying the data in Elasticsearch
 The stack will take approximately 15 minutes to deploy.
 
 **Step 2: Enable Amazon Cognito Access**
+
     *	In the console, select Elasticsearch Service
     *	Click the <stack-name>-domain
     *	Click Configure Cluster
