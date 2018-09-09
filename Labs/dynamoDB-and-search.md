@@ -44,7 +44,7 @@ The Dynamo schema uses the movie’s id as the primary key and adds items for th
 ```
 These fields will also serve as the basis for querying the data in Elasticsearch.
 
-**1. Launch the CloudFormation stack**
+1. **Launch the CloudFormation stack**
 
 	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
 	*	Choose CloudFormation
