@@ -16,10 +16,10 @@
 
 ### About the Spreadsheet
    3. Analyze the Spreadsheet
-       **Channel Affiliate**
+       * Channel Affiliate
            * 3rd party company
            * Selling through the client’s e-commerce site
-       **Promotion**
+       * Promotion
            * Various sales
            * Buy-one-get-one
            * Other commercial promotions
