@@ -46,50 +46,50 @@ These fields will also serve as the basis for querying the data in Elasticsearch
 
 1. **Launch the CloudFormation stack**
 
-	*	Using a web browser, login to the AWS Console at https://aws.amazon.com/
-	*	Choose CloudFormation
-	*	Choose the region you will use for this lab. The lab works in US East (N. Virginia) and US West (Oregon)
-	*	Choose Create Stack
-	*	In the resulting window, select Specify an Amazon S3 template URL. Use the following template, depending on your region
+	*	Using a web browser, login to the **AWS Console** at https://aws.amazon.com/
+	*	Choose **CloudFormation**
+	*	Choose the region you will use for this lab. The lab works in **US East (N. Virginia) and US West (Oregon)**
+	*	Choose **Create Stack**
+	*	In the resulting window, select **Specify an Amazon S3 template URL**. Use the following template, depending on your region
         *	US East (N.Virginia): https://s3.amazonaws.com/imdb-ddb-aes-lab-east-1/Lab-Template.json
         *	US West (Oregon): https://s3.amazonaws.com/imdb-ddb-aes-lab-west-2/Lab-Template.json
-	*	Enter a Stack Name.
+	*	Enter a **Stack Name**.
 	*	You can leave the other template parameters at their defaults or choose your own.
-	*	Click Next
-	*	Leave all the defaults on this page. Scroll to the bottom of the page and click Next
-	*	On the next page, click the checkbox next to I acknowledge that AWS CloudFormation might create IAM resources with custom names
-	*	Click Create
+	*	Click **Next**
+	*	Leave all the defaults on this page. Scroll to the bottom of the page and click **Next**
+	*	On the next page, click the checkbox next to **I acknowledge that AWS CloudFormation might create IAM resources with custom names**
+	*	Click **Create**
 
 The stack will take approximately 15 minutes to deploy.
 
 2. **Enable Amazon Cognito Access**
 
-	*	In the console, select Elasticsearch Service
-	*	Click the <stack-name>-domain
-	*	Click Configure Cluster
-	*	Scroll to the Kibana Authentication section and click the Enable Amazon Cognito for Authentication check box.
-	*	In the Cognito User Pool drop down, select ImdbDdbEsUserPool
-	*	In the Cognito Identity Pool drop down, select ImdbDdbEsIdentityPool
-	*	Click Submit
+	*	In the console, select **Elasticsearch Service**
+	*	Click the **<stack-name>-domain**
+	*	Click **Configure Cluster**
+	*	Scroll to the **Kibana Authentication** section and click the **Enable Amazon Cognito for Authentication** check box.
+	*	In the **Cognito User Pool** drop down, select **ImdbDdbEsUserPool**
+	*	In the **Cognito Identity Pool** drop down, select **ImdbDdbEsIdentityPool**
+	*	Click **Submit**
 
-Your domain will enter the Processing state while Amazon Elasticsearch Service enables Cognito access for your domain. Wait until the domain status is Active before going on to the next step. This should take about 10 minutes.
+Your domain will enter the **Processing** state while Amazon Elasticsearch Service enables Cognito access for your domain. Wait until the domain status is **Active** before going on to the next step. This should take about 10 minutes.
 
 3. **Log in to Kibana**
 
-    *	Click the Kibana link from your Amazon ES domain’s dashboard
-    *	For Username enter kibana, for Password, enter Abcd1234!
-    *	Click Sign in
-    *	Enter a new password in the Change Password dialog box
+    *	Click the **Kibana** link from your Amazon ES domain’s dashboard
+    *	For **Username** enter **kibana**, for **Password**, enter **Abcd1234!**
+    *	Click **Sign in**
+    *	Enter a new password in the **Change Password** dialog box
 
 You will see Kibana’s welcome screen
 
 ![Pic36](https://github.com/wrbaldwin/db-week/blob/master/img/Picture36.png)
 
 **Search the movie data**
-	*	In Kibana’s main screen, select the Dev Tools tab 
-	*	Click Get to work
+	*	In Kibana’s main screen, select the **Dev Tools** tab 
+	*	Click **Get to work**
 	*	The panel you now see lets you send requests directly to Amazon Elasticsearch Service. You enter the HTTP method, and the URL       body. Kibana starts out with a helpful example. Click the   to execute the query and you should see Elasticsearch’s response in the     right half of the screen.
-	*	For your first query, you will search the movie titles for Iron Man. Click after the closing bracket for the match_all query and    hit Enter a couple of times to get some blank lines.
+	*	For your first query, you will search the movie titles for Iron Man. Click after the closing bracket for the match_all query and    hit **Enter** a couple of times to get some blank lines.
 	*	Type “GET”. Notice that Kibana provides a drop down with possible completions. Finish typing out (or copy-paste) the following      query
 
 ```
@@ -283,49 +283,49 @@ You can experiment with building aggregations of different types and with differ
 
 **Stream updates to Dynamo DB**
 
-*	In your web browser, open a new tab for https://console.aws.amazon.com and choose Lambda
-*	Select Functions in the left pane
-*	You will see the three Lambda functions that the lab deploys, named <stack name>-WiringFunction-<string>, <stack name>-             LambdaFunctionForDDBStreams-<string>, and <stack name>-StreamingFunction-<string>. Click <stack name>-StreamingFunction-<string>
+*	In your web browser, open a new tab for https://console.aws.amazon.com and choose **Lambda**
+*	Select **Functions** in the left pane
+*	You will see the three Lambda functions that the lab deploys, named <stack name>-WiringFunction-<string>, <stack name>-             LambdaFunctionForDDBStreams-<string>, and <stack name>-StreamingFunction-<string>. Click **<stack name>-StreamingFunction-<string>**
 *	This function will generate random updates for the clicks and purchases fields, and send those updates to Dynamo. These updates     will in turn be shipped to Amazon ES through the LambdaFunctionForDDBStreams. If you examine the code, you’ll see that the function     ignores its input and simply runs in a loop, exiting just before it times out
-*	Click Test
-*	Type an Event Name
-*	Since the inputs don’t matter, you don’t have to change them. Click Create
-*	Click Test. This will run for 5 minutes, streaming changes to Amazon ES via Dynamo DB
+*	Click **Test**
+*	Type an **Event Name**
+*	Since the inputs don’t matter, you don’t have to change them. Click **Create**
+*	Click **Test**. This will run for 5 minutes, streaming changes to Amazon ES via Dynamo DB
 
 **Analyze the changes with Kibana**
 If you examine the code for the LambdaFunctionForDDBStreams, you’ll see that when data is modified in your Dynamo table, the function sends both the update and a log of the changes to the clicks and purchases to a logs-<date> index. You can use Kibana to visualize this information.
 *	Return to your Kibana tab (or open a new one)
-*	Click Management in the navigation pane
-*	Click Index Patterns. You use index patterns to tell Kibana which indexes hold time-series data that you want to use for            visualizations
-*	In the Index Pattern text box, type logs (leave the * that Kibana adds automatically)
-*	Kibana reports Success in identifying an index that matches that pattern
-*	Click Next Step
-*	Here you tell Kibana which field contains the time stamp for your records. Select @timestamp from the Time filter field name        drop down
-*	Click Create Index Pattern
+*	Click **Management** in the navigation pane
+*	Click **Index Patterns**. You use index patterns to tell Kibana which indexes hold time-series data that you want to use for            visualizations
+*	In the **Index Pattern** text box, type **logs** (leave the * that Kibana adds automatically)
+*	Kibana reports **Success** in identifying an index that matches that pattern
+*	Click **Next Step**
+*	Here you tell Kibana which field contains the time stamp for your records. Select **@timestamp** from the **Time filter field name** drop down
+*	Click **Create Index Pattern**
 *	Kibana recognizes the fields in your index and displays them for you
-*	Click Discover in the navigation pane
+*	Click **Discover** in the navigation pane
 *	This screen lets you view a traffic graph (the count of all events over time) as well as search your log lines for particular values
 
  ![Pic37](https://github.com/wrbaldwin/db-week/blob/master/img/Picture37.png)
 *	(Note, you can see my data covers 5 minutes and then stops. That’s because the Lambda function that’s streaming changes         terminates. You can go back to the Lambda console and click Test again to stream more changes)
 *	You can also use Kibana to build visualizations and gather them into a dashboard for monitoring events in near real time
-*	Click Visualize in the navigation pane
-*	Click Create a visualization You can see that Kibana has many different kinds of visualizations you can build
-*	Click Line
-*	On this screen, you tell Kibana which index pattern to use as the source for your visualization. Click logs*    
+*	Click **Visualize** in the navigation pane
+*	Click **Create a visualization** You can see that Kibana has many different kinds of visualizations you can build
+*	Click **Line**
+*	On this screen, you tell Kibana which index pattern to use as the source for your visualization. Click **logs**    
 *	When building Kibana visualizations you will commonly put time on the X-axis and a function of a numeric field on the Y-axis to graph a value over time
-*	In the Buckets section, click X-Axis
-*	In the Aggregation drop down, select Date Histogram
-*	Click   to change the visualization. You now have a graph of time buckets on the X-Axis and the Count of events on the Y-Axis
-*	In the Aggregation drop down for the Y-Axis, select Sum and in the Field drop down, select purchases to see the sum of all purchases, broken down by time
-*	You can monitor changes in this metric, in near real time, by clicking  in Kibana’s top menu bar, and choosing 10 seconds. Kibana now updates every 10 seconds. You might have to start the Lambda stream function again to generate more data or you might see data continuing to flow in
+*	In the **Buckets** section, click **X-Axis**
+*	In the **Aggregation** drop down, select **Date Histogram**
+*	Click   to change the visualization. You now have a graph of time buckets on the X-Axis and the **Count** of events on the Y-Axis
+*	In the **Aggregation** drop down for the Y-Axis, select **Sum** and in the **Field** drop down, select purchases to see the sum of all **purchases**, broken down by time
+*	You can monitor changes in this metric, in near real time, by clicking  in Kibana’s top menu bar, and choosing 10 seconds. Kibana now updates every **10 seconds**. You might have to start the Lambda stream function again to generate more data or you might see data continuing to flow in
 
 You can save your visualizations and build them into dashboards to monitor your infrastructure in near real time.
 
 **Clean up**
 *	When you’re done experimenting, return to the CloudFormation dashboard
-*	Click the check box next to your stack, then choose Delete Stack from the Actions menu
-*	Click Yes, Delete in the dialog box.
+*	Click the check box next to your stack, then choose **Delete Stack** from the **Actions** menu
+*	Click **Yes, Delete** in the dialog box.
 
 **Conclusion**
 In this lab, you used CloudFormation to deploy a Dynamo DB table, and an Amazon Elasticsearch Service domain to search the data in your table. You explored building complex, bool queries that used the indexes for your fields’ data. You explored Elasticsearch’s geo capabilities, and its abilities to search natural language data. You created aggregations to analyze the movie data and discover the best-rated actor in this data set. Finally, you used Dynamo DB streams to flow updates from your table to your domain and Kibana to visualize the changes in your table. 
