@@ -68,17 +68,17 @@ To exit from the mysql> prompt, use CTRL-D
  
 4.	Download and Prepare Landsat scenes
     
-    *	See documentation at
+   *	See documentation at
+   
+   https://aws.amazon.com/public-data-sets/landsat/
     
-    https://aws.amazon.com/public-data-sets/landsat/
+   *	From your EC2 instance, download the Landsat scenes
     
-    *	From your EC2 instance, download the Landsat scenes
+   $ wget http://landsat-pds.s3.amazonaws.com/scene_list.gz
     
-    $ wget http://landsat-pds.s3.amazonaws.com/scene_list.gz
-    
-    *	Unzip the scene list
-    
-    $ gunzip scene_list.gz
+   *	Unzip the scene list
+   
+   $ gunzip scene_list.gz
 5.	Load to MySQL
     
     *	Log into the mysql> console
