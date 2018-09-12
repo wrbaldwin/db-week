@@ -20,7 +20,7 @@ instance using the AWS Management Console.
 
 [Using a Property Graph](https://github.com/paulfryer/neptune-developer-workshop/blob/master/Labs/Airports/README.md) - In the lab you will create a Neptune instance and configure security groups. You will then use Gremlin to run transversals after you load data into Neptune
 
-[DynamoDB Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/dynamoDB-basics) - Add a description here.
+[DynamoDB Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/dynamoDB-basics) - In this lab you will set up and use DynamoDB and DAX. You’ll need a laptop with a Firefox or Chrome browser.
 
 [DynamoDB and Search](https://github.com/wrbaldwin/db-week/tree/master/Labs) - In this lab, you’ll explore using Amazon Elasticsearch Service (Amazon ES) to augment the more fundamental query capabilities of Amazon Dynamo DB (Dynamo DB). You’ll deploy a CloudFormation template that generates a Dynamo DB table and loads movie data into that table. You’ll employ Dynamo Streams to replicate the initial data load to an Amazon Elasticsearch Service domain. You’ll enable Cognito authentication to provide simple access to Kibana so that you can use Kibana’s UI to send searches to Amazon ES. Finally, you’ll run a Lambda function to generate updates to the Dynamo DB table, see those updates replicated to Amazon ES, and build Kibana visualizations for the changes.
 
