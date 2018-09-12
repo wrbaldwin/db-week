@@ -12,7 +12,7 @@ instance using the AWS Management Console.
 
 [Aurora MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/aurora-mysql.pdf) - In this lab you will, create Aurora MySQL DB Instance, grant Aurora MySQL access i.e. modify security group to allow access from your computer, and load data from S3 into Aurora MySQL database. Create read replica instance & access table, create a database copy using Aurora “Clone” feature, and perform DML query on primary DB and validate data on primary and cloned DB copy.
 
-[Upgrading and Consolidating MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/upgrading-and-consolidating-mySQL.md) - Add a description here.
+[Upgrading and Consolidating MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/upgrading-and-consolidating-mySQL.md) - In this lab you will load data into a MySQL instance running on EC2. Next you will create an Aurora MySQL instance. Finally, you will use DMS to migrate data from one MySQL database to another.
 
 [A Simple Database Migration](https://github.com/wrbaldwin/db-week/blob/master/Labs/a-simple-database-migration) - This workshop is a hands-on journey for existing Oracle DBAs moving to Aurora PostgreSQL. Attendees will deploy an instance of Aurora PostgreSQL, migrate and generate a test workload on PostgreSQL, and manually monitor the database to understand the workload. They will review a few ways to track queries and their execution plans, and what can be done to optimize the queries. Attendees will also learn how to do the same on Aurora PostgreSQL using Performance Insights for query analysis and tuning.
 
