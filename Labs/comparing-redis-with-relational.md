@@ -155,6 +155,7 @@ mysql> CREATE TABLE scene_list (productId VARCHAR(64),entityId VARCHAR(64), acqu
    *	Create the file sql2redis.py, containing the following code. Be sure to replace items in red with your own endpoints, user name and   password.
 
 ```
+#-*- coding: utf-8 -*-
 #!/usr/bin/python
 
 import redis
@@ -162,7 +163,7 @@ import MySQLdb
 from collections import Counter
 
 r = redis.StrictRedis('<your redis node>',port=6379,db=0)
-database = MySQLdb.connect("<your MySQL node>","<your username>","<your password>","landsat")
+database = MySQLdb.connect(host="<db host name>",user="<user name>",passwd="<passwd>",db="landsat")
 
 cursor = database.cursor()
 select = 'SELECT productId, entityId, UNIX_TIMESTAMP(acquisitionDate), cloudCover, processingLevel, path, row, min_lat, min_lon, max_lat, max_lon, download_url, CONCAT(productId, entityId) AS Id FROM scene_list'
@@ -170,8 +171,8 @@ cursor.execute(select)
 data = cursor.fetchall()
 
 for row in data:
-r.zadd('cCov',row[3],row[12])
-r.zadd('acqDate',row[2],row[12])
+ r.zadd('cCov',row[3],row[12])
+ r.zadd('acqDate',row[2],row[12])
 cursor.close()
 database.close()
 ```
