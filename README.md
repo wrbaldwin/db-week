@@ -23,5 +23,3 @@ instance using the AWS Management Console.
 [DynamoDB Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/dynamoDB-basics.md) - In this lab you will set up and use DynamoDB and DAX. You’ll need a laptop with a Firefox or Chrome browser.
 
 [Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/) - In this tutorial, you will deploy a monolithic node.js application to a Docker container, then decouple the application into microservices without any downtime. The node.js application hosts a simple message board with threads and messages between users.
-
-[Data Design for Microservices](https://github.com/wrbaldwin/db-week/blob/master/Labs/data-design-for-microservices.md) - We didn't give you enough information to answer the question. Welcome to consulting! Since you don't have enough information, the real question is, "What will you ask the client at your next meeting?" What can you begin to recommend based on the limited information you have?
