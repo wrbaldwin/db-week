@@ -2,11 +2,21 @@
 
 Database Week at the AWS Loft is an opportunity to learn about Amazon’s broad and deep family of managed database services. These services provide easy, scalable, reliable, and cost-effective ways to manage your data in the cloud.
 
-## Labs
+## New Labs
+[Getting Started with Linux on Amazon EC2](https://github.com/wrbaldwin/db-week/blob/master/Labs/getting-started-with-ec2-linux.pdf) - This lab will walk you through launching, configuring, and customizing an EC2 virtual machine to run a web server. It will walk you though successfully provisioning and starting an EC2 instance using the AWS Management Console.
 
-[Getting Started with Linux on Amazon EC2](https://github.com/wrbaldwin/db-week/blob/master/Labs/getting-started-with-ec2-linux.pdf) - This lab will walk you through launching, configuring, and customizing an EC2 virtual machine
-to run a web server. It will walk you though successfully provisioning and starting an EC2
-instance using the AWS Management Console.
+[Running SQL Server on Amazon RDS and Migrating to MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/running-SQL-Server-on-Amazon-RDS-and-Migrating-to-MySQL.md) - If you'd like to move your SQL Server databases to the cloud, this workshop is for you. We review the basics of Amazon Relational Database Service (Amazon RDS) and how SQL Server databases run in Amazon RDS. We then leverage the combination of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), and we show you how to migrate your databases to Amazon Aurora MySQL. We provide an AWS CloudFormation template to set up the entire environment for the lab. You need a laptop with a Firefox or Chrome browser and a working AWS account.
+
+[Running Oracle Databases on Amazon RDS and Migrating to PostgreSQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/running-Oracle-databases-on-Amazon-RDS-and-Migrating-to-PostgreSQL.md) - If you'd like to move your Oracle databases to the cloud, this workshop is for you. We review the basics of Amazon Relational Database Service (Amazon RDS) and how Oracle databases run in Amazon RDS. We then leverage the combination of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), and we show you how to migrate your databases to Amazon Aurora PostgreSQL. We provide an AWS CloudFormation template to set up the entire environment for the lab. You need a laptop with a Firefox or Chrome browser and a working AWS account.
+
+[Accelerating Application Development with Amazon Aurora](https://github.com/wrbaldwin/db-week/blob/master/Labs/accelerating-application-development-with-Amazon-Aurora.md) - Learn how to leverage the unique features of the Amazon Aurora platform to build faster, more scalable database applications optimized for the cloud. We discuss architectural best practices and features, such as Aurora Serverless, Read Replica Auto-Scaling, Cross-Region Replicas, Backtrack, Fast Database Cloning, and Performance Insights. They are designed to help increase agility so you can develop applications faster to reach the widest possible audience. Through a hands-on lab, we help you understand how to best take advantage of the capabilities of the Aurora platform to effectively accelerate application development.
+
+[Building Serverless Applications with Amazon DynamoDB & AWS Lambda] (https://github.com/wrbaldwin/db-week/blob/master/Labs/Building/serverless-applications-with-Amazon-DynamoDB-and-AWS-Lambda.md) - Join us for this advanced design and best practices workshop, designed to demonstrate the breadth of AWS serverless offerings and how the components work together. In this interactive workshop, we review the evolution of an e-commerce company that starts with a low-effort serverless product catalog, scales to a million daily users, and then adds analytics and near real-time monitoring. As we progress through the workshop, we dive deeply into AWS serverless services, such as Amazon DynamoDB, AWS Lambda, and Amazon Kinesis. We also use Amazon S3, Amazon API Gateway, Amazon Cognito, and other services that enable you to optimize costs and improve performance. Basic knowledge of DynamoDB, Lambda, and Kinesis is required.
+
+
+[Building Your First Graph Application with Amazon Neptune] (https://github.com/wrbaldwin/db-week/blob/master/Labs/building-your-first-graph-application-with-Amazon-Neptune.md) - In this session, get hands on with Amazon Neptune and build a cloud-based graph application. Learn how to quickly load data and begin writing Gremlin traversals.
+
+## Old Labs
 
 [Managed Database Basics](https://github.com/wrbaldwin/db-week/blob/master/Labs/managed-database-basics.md) - In this lab you will learn, how to create an EC2 instance for use as a SQL client that connects to an RDS/MySQL instance. Next, you will create a database, load a public Landsat dataset into it, and query your database using SQL. Finally, you will learn how to use the RDS console including stopping, starting, monitoring, snapshots and other RDS features.
 
