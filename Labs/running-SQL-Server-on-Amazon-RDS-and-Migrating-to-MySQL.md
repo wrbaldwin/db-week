@@ -1,8 +1,8 @@
-## Workshop: Running SQL Server on Amazon RDS and Migrating to MySQL
+# Workshop: Running SQL Server on Amazon RDS and Migrating to MySQL
 
 
 
-# Log into your AWS account (we will provide credits.)
+## Log into your AWS account (we will provide credits.)
 
 You will need an EC2 key pair in order to log into your SCT instance.
 If you have access to an existing one, you can skip this step, (but you should check to make sure.)
@@ -17,7 +17,7 @@ Download or otherwise save the .pem file
 
 [Download/Copy the Cloud Formation Template](https://s3-us-west-2.amazonaws.com/mtt-reinvent-2018/reinvent-2018-dms-workshop-template.txt)
 
-# Launching your assets
+## Launching your assets
 Open the Cloud Formation Service
 Choose: Create Stack
 Under choose a template select "upload a template"
@@ -51,7 +51,7 @@ Click "Create"
 NOTE: Important information about your assets will be listed in your Cloud Formation "Outputs" listing for your stack
 
 
-# Logging into your SCT windows server
+## Logging into your SCT windows server
 Log into the ec2 console and find your instance. The name should include your cloudwatch stack name.
 ---> Get the password
 Select your instance
@@ -70,7 +70,7 @@ Supply the username and click "Connect"
 You will be prompted for a password - supply the one you just obtained.
 Click "YES" to log in despite certificate errors.
 
-# Installing Drivers
+## Installing Drivers
 Unfortunately for legal reasons we are not allowed to pre-install the drivers for you.
 You will need to install bot SQL Server and MySQL drivers in order to connect to your source and target databases.
 Instructions are on the desktop in the file "JDBC Driver Install Instructions"
@@ -78,7 +78,7 @@ Instructions are on the desktop in the file "JDBC Driver Install Instructions"
 Follow the instructions and install the appropriate drivers.
 
 
-# Launch the SCT and connect to your source and target
+## Launch the SCT and connect to your source and target
 The icon for the Schema Conversion Tool is on your desktop - double click and launch it! 
 Note: We purposely installed a prior instance so you could see the prompt when a new version is available.
 Choose "Not Now" and launch the current instance.
@@ -124,7 +124,7 @@ Click "Finish"
 ...At this point you can poke around a bit. You'll notice there are some errors mostly with code objects.
 This is intentional to show how the tool will highlight issues that need attention.
 
-# Generate your target MySQL database
+## Generate your target MySQL database
 In the left hand panel right click on the dms_sample.dbo schema.
 From the menu select "Convert schema"
 
@@ -133,7 +133,7 @@ From the menu select "Apply to database"
 
 You have now used the SCT to convert your SQL Server schema to an Aurora MySQL schema!  Woohoo!!!
 
-# Next - we'll use the Database Migration Service to migrate the data from your SQL Server instance to your Aurora MySQL instance
+## Next - we'll use the Database Migration Service to migrate the data from your SQL Server instance to your Aurora MySQL instance
 Log into the AWS Console and go to the Database Migration Service
 
 --> Create your source endpoint
@@ -195,7 +195,7 @@ Click "Add selection rule"
 Click "Create task" (button bottom-right)
 
 
-# Tear Down
+## Tear Down
 When you are done, you'll want to tear down your environment. To do so:
 
 STOP your task! (this is important to ensure the replication instance is destroyed and you aren't charged $$$$$$)
