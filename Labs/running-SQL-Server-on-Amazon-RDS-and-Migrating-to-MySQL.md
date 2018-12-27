@@ -15,7 +15,7 @@ Supply a name and click "Create"
 Download or otherwise save the .pem file  
 
 
-[Download/Copy the Cloud Formation Template](https://github.com/db-week/Labs/reinvent-2018-dms-workshop-template.txt)
+[Download/Copy the Cloud Formation Template](https://github.com/wrbaldwin/db-week/blob/master/Labs/reinvent-2018-dms-workshop-template.txt)
 
 ## Launching your assets
 Open the Cloud Formation Service
