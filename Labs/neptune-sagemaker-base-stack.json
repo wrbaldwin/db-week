@@ -1,0 +1,140 @@
+{
+  "Description": "Create Amazon Neptune cluster and Amazon SageMaker notebook for DAT310",
+  "Parameters": {},
+  "Resources": {
+    "NeptuneBaseStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/aws-neptune-customer-samples/v2/cloudformation-templates/neptune-base-stack.json",
+        "Parameters": {
+          "NeptuneQueryTimeout": "300000",
+          "DbInstanceType": "db.r4.2xlarge"
+        },
+        "TimeoutInMinutes": "60"
+      }
+    },
+    "SageMakerNeptuneStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/aws-neptune-customer-samples/neptune-sagemaker/cloudformation-templates/neptune-sagemaker/neptune-sagemaker-nested-stack.json",
+        "Parameters": {
+          "NeptuneClusterEndpoint": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.DBClusterEndpoint"
+            ]
+          },
+          "NeptuneReaderEndpoint": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.DBClusterReadEndpoint"
+            ]
+          },
+          "NeptuneClusterPort": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.DBClusterPort"
+            ]
+          },
+          "NeptuneClusterVpc": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.VPC"
+            ]
+          },
+          "NeptuneClusterSubnetId": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.PublicSubnet1"
+            ]
+          },
+          "NeptuneLoadFromS3RoleArn": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.NeptuneLoadFromS3IAMRoleArn"
+            ]
+          },
+          "NeptuneClientSecurityGroup": "",
+          "NotebookContentS3Locations": "s3://reinvent-2018-neptune-eu-west-1/dat310|notebooks/*"
+        },
+        "TimeoutInMinutes": "60"
+      }
+    },
+    "AddIamRoleToNeptuneStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/aws-neptune-customer-samples/neptune-sagemaker/cloudformation-templates/common/add-iam-role-to-neptune.json",
+        "Parameters": {
+          "DBClusterId": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.DBClusterId"
+            ]
+          },
+          "NeptuneLoadFromS3IAMRoleArn": {
+            "Fn::GetAtt": [
+              "NeptuneBaseStack",
+              "Outputs.NeptuneLoadFromS3IAMRoleArn"
+            ]
+          }
+        },
+        "TimeoutInMinutes": "60"
+      }
+    }
+  },
+  "Outputs": {
+    "SageMakerNotebook": {
+      "Value": {
+        "Fn::GetAtt": [
+          "SageMakerNeptuneStack",
+          "Outputs.NeptuneNotebook"
+        ]
+      }
+    },
+    "DBClusterEndpoint": {
+      "Description": "Master Endpoint for Neptune Cluster",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneBaseStack",
+          "Outputs.DBClusterEndpoint"
+        ]
+      }
+    },
+    "DBInstanceEndpoint": {
+      "Description": "Master Instance Endpoint",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneBaseStack",
+          "Outputs.DBInstanceEndpoint"
+        ]
+      }
+    },
+    "GremlinEndpoint": {
+      "Description": "Gremlin Endpoint for Neptune",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneBaseStack",
+          "Outputs.GremlinEndpoint"
+        ]
+      }
+    },
+    "LoaderEndpoint": {
+      "Description": "Loader Endpoint for Neptune",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneBaseStack",
+          "Outputs.LoaderEndpoint"
+        ]
+      }
+    },
+    "DBClusterReadEndpoint": {
+      "Description": "DB cluster Read Endpoint",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneBaseStack",
+          "Outputs.DBClusterReadEndpoint"
+        ]
+      }
+    }
+  }
+}
