@@ -14,7 +14,7 @@ Database Week at the AWS Loft is an opportunity to learn about Amazon’s broad 
 [Search Dynamo DB Data with Amazon Elasticsearch Service](https://github.com/wrbaldwin/db-week/blob/master/Labs/Search_DDB_Data_with_AES.pdf) - In this lab, you’ll explore using Amazon Elasticsearch Service (Amazon ES) to augment the more fundamental query capabilities of Amazon Dynamo DB (Dynamo DB). You’ll deploy a CloudFormation template that generates a Dynamo DB table and loads movie data into that table. You’ll employ Dynamo Streams to replicate the initial data load to an Amazon Elasticsearch Service domain. You’ll enable Cognito authentication to provide simple access to Kibana so that you can use Kibana’s UI to send searches to Amazon ES. Finally, you’ll run a Lambda function to generate updates to the Dynamo DB table, see those updates replicated to Amazon ES, and build Kibana visualizations for the changes.
 
 
-[Building Your First Graph Application with Amazon Neptune](https://github.com/wrbaldwin/db-week/blob/master/Labs/building-your-first-graph-application-with-Amazon-Neptune.md) - In this session, get hands on with Amazon Neptune and build a cloud-based graph application. Learn how to quickly load data and begin writing Gremlin traversals.
+[Building Your First Graph Application with Amazon Neptune](https://github.com/wrbaldwin/db-week/blob/master/Labs/Building_Your_First_Graph_Application_with_Amazon_Neptune.md) - In this session, get hands on with Amazon Neptune and build a cloud-based graph application. Learn how to quickly load data and begin writing Gremlin traversals.
 
 ## Old Labs
 
