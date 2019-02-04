@@ -14,8 +14,7 @@ We will be using Amazon SageMaker and AWS CloudFormation to set up infrastructur
 | Loft Location | Template |
 | ------ | -------- |
 | New York Loft | [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=loftdbweek&templateURL=https://s3.amazonaws.com/loft-dbweek-neptune-us-east-2/dat310/cfn/neptune-sagemaker-base-stack-dat310.json) |
-| San Francisco Loft | [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=loftdbweek&templateURL=https://s3.amazonaws.com/loft-dbweek-neptune-us-west-2/dat310/cfn/neptune-sagemaker-base-stack-dat310.json)
-|
+| San Francisco Loft | [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=loftdbweek&templateURL=https://s3.amazonaws.com/loft-dbweek-neptune-us-west-2/dat310/cfn/neptune-sagemaker-base-stack-dat310.json) |
 
 *   The **Launch Stack** links above will take you to the CloudFormation console with the appropriate CloudFormation template already populated.  At the Create Stack screen, go ahead and click the Next button.
 *   At **Specify Stack details** screen leave default settings and click Next.
