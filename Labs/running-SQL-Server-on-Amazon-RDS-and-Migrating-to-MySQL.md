@@ -24,20 +24,20 @@ Under choose a template select "upload a template"
 click "choose file"
 choose the file you just created
 
-1. Supply a stack name
-2. Under Source RDS Database
+1. Supply a stack name like DMS-SQLServer-to-MYSQL
+2. Under Source RDS Database *(note the template supports Oracle to Postgres default or SQL Server to MySQL be sure to pick the appropriate drop downs for the version of the lab you are running or you will have to start over!)
 
    Leave defaults for parameters except:
    Under SourceDBInstanceType - pick one (it's helpful if not everyone selects the default)
    
-   **Under SourceDBEngineType pick SQLSERVER-SE (default is Oracle. Please change to meet your lab)**
+   **Under SourceDBEngineType pick SQLSERVER-SE _(Pick the right one to match your lab. default is Oracle)_**
   
 3. Target Database
 
    Leave defaults for parameters except:
    Under AuroraInstanceType - pick one ( It's helpful if not everyone selects the default)
    
-   **Under AuroraEngineType - pick "aurora-mysql" or just "Aurora" (default is Aurora-Postgres)**
+   **Under AuroraEngineType - pick "aurora-mysql" or just "Aurora" _(Pick the right one to match your lab. default is Auora-Postgres)_**
 
 4. Schema Conversion Tool Host Configuration
 
