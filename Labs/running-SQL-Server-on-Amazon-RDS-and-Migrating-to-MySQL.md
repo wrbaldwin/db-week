@@ -188,9 +188,8 @@ SSL mode: none
 User name: auradmin
 Password: auroradmin123  <TargetDBUserPassword> (from CF Ourputs)
 
-   **_Open the advanced section by clicking on it and turn off foreign key checks for the Aurora target by putting  !!!
-   **Extra connection attributes: initstmt=SET FOREIGN_KEY_CHECKS=0  **
-    in the entry box
+   **Open the advanced section by clicking on it and turn off foreign key checks for the Aurora target by putting  !!!**
+   **Extra connection attributes to add to input box:   _initstmt=SET FOREIGN_KEY_CHECKS=0_**
  
 vpc: select the vpc that contains your CF stack name
 replication instance: choose the instance that contains your CF stack name
