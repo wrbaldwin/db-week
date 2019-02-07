@@ -1,3 +1,5 @@
+# Build Your First Graph Application with Amazon Neptune
+
 ## Overview
 
 The following lab will walk you through an introduction to using the Gremlin graph traversal language, part of the Apache Tinkerpop graph framework.  Amazon Neptune supports the Tinkerpop framework and Gremlin traversal language to allow users to create property graphs and graph-based applications.  In the lab, you will use a sample of the open IMDB.com movie database stored in a graph data model within Neptune to answer specific questions.  This lab starts off with two Jupyter Notebooks to teach you the basics of Gremiln.  It ends with a Jupyter Notebook containing a set of challenges where you have to write Gremlin traversals on your own.
@@ -35,9 +37,9 @@ We will be using Amazon SageMaker and AWS CloudFormation to set up infrastructur
 *   The last output listed is for a SageMaker Notebook Instance.  This contains a set of Jupyter Notebooks that we will use for the remainder of this lab.  Click on the link for the SageMakerNotebook output.  This will open the Jupyter Notebook console. 
 *   Within the Jupyter Notebook console, navigate the directory tree to the Neptune/notebooks folder.  You will see the four Jupyter Notebooks.  Start with the 01-Setup notebook and follow the instructions carefully. 
 
-**Note**: Make sure to delete the cloud formation stack after the workshop to delete all associated resources. Go to AWS Console > Cloud Formation in the same region that you created the stack in and delete the stack.
+**Note**: Make sure to delete the CloudFormation stack after the workshop to delete all associated resources. Go to AWS Console > CloudFormation in the same region that you created the stack in and delete the stack.
 
 
 ## Web Application (Optional)
 
-We have put together following sample web application that demonstrates how to setup to Neptune, issue gremlin queries and build your application. Please refer to the README for further instructions to setup the application: [neptune-workshop-ui](https://github.com/triggan/neptune-workshop-ui)
+We have put together the following sample web application that demonstrates how to build a frontend application that consumes data from Neptune. Please refer to the README for further instructions to setup the application: [neptune-workshop-ui](https://github.com/triggan/neptune-workshop-ui)
