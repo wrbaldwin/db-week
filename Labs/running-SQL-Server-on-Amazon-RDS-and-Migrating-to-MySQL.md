@@ -180,7 +180,8 @@ Click "Create endpoint" (button up top-left)
 
 Endpoint type: Select "target"
 check "select RDS DB Instance"
-choose your target Aurora MySQL instance from the RDS Instance drop down
+choose your target Aurora MySQL instance from the RDS Instance drop down if your instance doesn't show 
+then add your instance details manually. 
 Target engine: aurora
 Server name: < should be supplied - verify if you want>
 port: 3306
@@ -188,7 +189,8 @@ SSL mode: none
 User name: auradmin
 Password: auroradmin123  <TargetDBUserPassword> (from CF Ourputs)
 
-   **Open the advanced section by clicking on it and turn off foreign key checks for the Aurora target by putting  !!!**
+   **Open the advanced section or Endpoint-specific settings by clicking on it and turn off foreign key checks
+   for the Aurora target by putting  !!!**
    **Extra connection attributes to add to input box:   _initstmt=SET FOREIGN_KEY_CHECKS=0_**
  
 vpc: select the vpc that contains your CF stack name
