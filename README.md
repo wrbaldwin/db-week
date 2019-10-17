@@ -3,7 +3,7 @@
 Database Week at the AWS Loft is an opportunity to learn about Amazon’s broad and deep family of managed database services. These services provide easy, scalable, reliable, and cost-effective ways to manage your data in the cloud.
 
 ## Current Labs
-[Getting Started with Linux on Amazon EC2](https://github.com/wrbaldwin/db-week/blob/master/Labs/getting-started-with-ec2-linux.pdf) - This lab will walk you through launching, configuring, and customizing an EC2 virtual machine to run a web server. It will walk you though successfully provisioning and starting an EC2 instance using the AWS Management Console.
+[Getting Started with Linux on Amazon EC2](https://github.com/wrbaldwin/db-week/blob/master/Labs/EC2LinuxHandsOnLab.pdf) - This lab will walk you through launching, configuring, and customizing an EC2 virtual machine to run a web server. It will walk you though successfully provisioning and starting an EC2 instance using the AWS Management Console.
 
 [Running SQL Server on Amazon RDS and Migrating to MySQL](https://github.com/wrbaldwin/db-week/blob/master/Labs/running-SQL-Server-on-Amazon-RDS-and-Migrating-to-MySQL.md) - If you'd like to move your SQL Server databases to the cloud, this workshop is for you. We review the basics of Amazon Relational Database Service (Amazon RDS) and how SQL Server databases run in Amazon RDS. We then leverage the combination of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), and we show you how to migrate your databases to Amazon Aurora MySQL. We provide an AWS CloudFormation template to set up the entire environment for the lab. You need a laptop with a Firefox or Chrome browser and a working AWS account.
 
