@@ -168,9 +168,9 @@
 		"DMSInstanceVersion": {
 			"Description": "DMS Engine Version to use",
 			"Type": "String",
-			"Default": "2.4.3",
+			"Default": "2.4.4",
 			"AllowedValues": [
-				"2.4.3",
+				"2.4.5",
 				"2.4.4"
 			],
 			"ConstraintDescription": "must be a valid DMS Engine Version."
